@@ -1,0 +1,42 @@
+div {
+  border: 1px solid green;
+}
+
+#container {
+  width: 620px;
+}
+
+#duck-field {
+  display: inline-block;
+  width: 300px; height: 500px;
+  overflow: hidden;
+}
+
+#my-field {
+  display: inline-block;
+  width: 300px; height: 500px;
+  overflow: hidden;
+}
+
+
+
+/*circle {
+  baqckground: red;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+*/
+
+.square {
+  display: inline-block;
+  width: 44px; height: 44px;
+  cursor: pointer;
+}
+
+ /*.mother-duck {
+ background-image: url("https://webstockreview.net/images/1-clipart-duck.jpg");
+}
+ /*background-color: #CCCCCC;
+}

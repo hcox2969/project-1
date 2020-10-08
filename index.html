@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+
+    <title>Five Little Ducks</title>
+
+  </head>
+<h1>Five Little Ducks</h1>
+<p>age 2+</p>
+  <h2>Game Rules:</h2>
+  <ul>
+    <li>click START! button </li>
+    <li>click on Mother Duck on the first line</li>
+    <li>count how many little ducks are gone</li>
+    <li>click the correct number of ducks gone on the right side</li>
+    <li>keep clicking on Mother Duck on the following lines</li>
+    <li>keep on clicking the correct number of ducks gone on the right side</li>
+    <li>you WIN when you counted the little ducks in the last line</li>
+    </ul>
+  <body>
+    <!-- audio files for mother ducks o, 6, 12, 18, 24, 30, 36 -->
+    <audio id="duckAudio">
+      <source src="music_files/Verse_1.m4a" type="audio/mp4">
+        <source src="" type="">
+    </audio>
+<!-- audio files for mother duck  6 -->
+    <audio id="duckAudio1">
+      <source src="music_files/Verse_2.m4a" type="audio/mp4">
+        <source src="" type="">
+    </audio>
+<!-- audio files for mother ducks  12-->
+    <audio id="duckAudio2">
+      <source src="music_files/Verse_3.m4a" type="audio/mp4">
+        <source src="" type="">
+    </audio>
+  <!-- audio files for mother ducks  18-->
+    <audio id="duckAudio3">
+        <source src="music_files/Verse_4.m4a" type="audio/mp4">
+          <source src="" type="">
+    </audio>
+  <!-- audio files for mother ducks  24-->
+    <audio id="duckAudio4">
+      <source src="music_files/Verse_5.m4a" type="audio/mp4">
+        <source src="" type="">
+    </audio>
+<!-- audio files for mother ducks  30-->
+    <audio id="duckAudio5">
+      <source src="music_files/Verse_6.m4a" type="audio/mp4">
+        <source src="" type="">
+    </audio>
+<!-- audio files for mother ducks  36-->
+    <audio id="duckAudio6">
+      <source src="music_files/End_of_song.m4a" type="audio/mp4">
+        <source src="" type="">
+    </audio>
+
+<button id="generate">START!</button>
+<audio id="duckAudio7">
+  <source src="music_files/instrumental.m4a" type="audio/mp4">
+    <source src="" type="">
+</audio>
+
+
+<audio id="duckAudio9">
+  <source src="music_files/instrumental.m4a" type="audio/mp4">
+    <source src="" type="">
+</audio>
+
+<div id="container">
+
+  <!-- created two dives that match css:-->
+  <div id="duck-field"></div>
+
+  <div id="my-field"></div>
+
+  </div>
+<!-- created image mother duck-->
+<div id = "mother-duck">
+<img src="https://webstockreview.net/images/1-clipart-duck.jpg" alt="Mother_Duck" width="42" height="42"/>
+</div>
+<div id = "little-duck">
+<img src="https://previews.123rf.com/images/ynmcreations/ynmcreations1205/ynmcreations120500009/13510077-little-duck.jpg" alt="Little_Duck" width="42" height="42"/>
+</div>
+
+
+<button id="generate1">CLOSE</button>
+
+
+<!-- JavaScript & jQuery files  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+
+</html>
