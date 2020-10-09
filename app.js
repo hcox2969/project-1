@@ -1,102 +1,51 @@
-// Cereated elements in HTML:
-/*
-<button id="generate">START!</button>
-
-<div id="container">
-  <!-- created two dives that match css:-->
-  <div id="duck-field"></div>
-  <div id="my-field"></div>
-
-  </div>
-<button id="generate">CLOSE</button>*/
-//Grabed the HTML elemets with jQuery:
 
 const $duckField = $('#duck-field');
 const $myField = $('#my-field');
 const $generate = $('#generate');
 let img = "https://previews.123rf.com/images/ynmcreations/ynmcreations1205/ynmcreations120500009/13510077-little-duck.jpg"
-// add color handler for myField
-
-//const makeSquare = (number) => {
-    //const $square = $('<div>').addClass('square')
-  //$square.css('background-color', yellow())
-//  $square.text(number)
-  //$square.attr('id', 'square' + number)
-  //  $('.container').append($square)
-  //}
-	//const duckFieldArray = [
-		//{motherDuck: 'mother duck', image: './img-project.littleDuck.jpg', verse: './first.verse.mp3',},
-		//{littleDuck: 'little duck', image: './img-project.littleDuck.jpg',}
-//]
-
+// created a field of 42 squares on the left side of the game field
 const duckField = () => {
 	for(let i = 0; i < 42; i++){
-
-		//const $divSquare = $('<div id="square"></div>')
-
 		const $square = $(`<div data-num-square="${i}" ><img src="https://webstockreview.net/images/1-clipart-duck.jpg" alt="Mother_Duck" width="42" height="42"/></div>`)
      // create one class for mother ducks and the other for little ducks
       if(i % 6 === 0) {
 				$square.addClass('mother-duck')
 				$square.attr('id', i)
-/*assign mother duck image to class mother duck
-const imgMotherDuck = $(`<div id = "mother-duck"><img src="https://webstockreview.net/images/1-clipart-duck.jpg" alt="Mother_Duck" width="42" height="42"/></div>`)
-$imgMotherDuck.addClass('imgMotherDuck')
-$('.mother-duck').append($imgMotherDuck)
-*/
+
 				      } else {
 		 		$square.addClass('little-duck')
 				//set an id
 						 $square.attr('id', i)
-/* const imgLittleDuck = $(`<div id = "little-duck"><img src="https://previews.123rf.com/images/ynmcreations/ynmcreations1205/ynmcreations120500009/13510077-little-duck.jpg" alt="Little_Duck" width="42" height="42"/></div>`)
-$imgLittleDuck.addClass('imgLittleDuck')
-$('.little-duck').append($imgLittleDuck)
-*/
 				}
 //set an id
 		 $square.attr('id', i)
 		 $square.addClass('square');
 		 $duckField.append($square);
 
-//let x = document.createElement('')
-//$('.mother-duck').css()
-	}
+			}
 }
 duckField()
+// created a field of 42 squares on the left side of the game field
 
 const myField = () => {
-		for(let i = 0; i < 42; i++){
-			const $square = $(`<div data-num-square="${i}" ><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcGBgoHBwgRBgYJDQoHBwYIBw8IDggWFREXIiARHx8YHCggGBoxGx8TITEhJSkrLi4uIx8zODMsNygtLisBCgoKDg0NDw0NFSsZFRkrKysrLSsrLSsrKy0rLTcrKysrKystKysrKysrKysrKysrKysrLSsrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAAAAQIEBwP/xAA2EAEBAQABAgIFBg8BAAAAAAAAARECUvASQjJRYrHSIYKRocLRIjNBYXFygZKToqPB4eLxA//EABoBAQEBAQEBAQAAAAAAAAAAAAABAgMEBwX/xAAfEQEBAQABBQEBAQAAAAAAAAAAAREhAhIxQVFhcSL/2gAMAwEAAhEDEQA/APQZz59XvLy59QPm+/r9vIs5cur+dPFz6vei6d1MW3l1X60t59X9RKSHdTF8XPn5i8ufVSJid1Mi+Ln1e9fFz6qzF+k7r9MhOXLqpvLqv1oq91MXeXWeLmmmJ3X6ZDx8zxc+r3oSrOqmN3lz6kvLn1CHd+mL4+fUfh96kKmmL4ufVTxcutIsJaZF8XLqqTlz6kVruv04Ly5k58+oTE7uoyLvP8/8Q3n10sXF6bfqXHTvtUPDw74jv/r6xw5KWg8tdADFCi8UpSJPYCGIqmkF9IkLBSAVcATShE1QkXEqUBYJJ7E/UBVggpraBSKmiVGkJujqDB6GHHVzv/KpK87ZISigSoqIEKFN4DFSKqlQkPOmgqpa1EExbUYVUVIdURcABBplqjRiKsEwhYMXgAFg6dF+d7h6WHIRajzNroQNEi1YU/ozKWqlRSFAFAX+oU0NKCQVIphDSLcqADKmKlLGoi6JhjUqFgtSMVQ0VZCukT5e/wDiu+ObliVqpHCugJVsAKRQTEWCZ9E1U1WgJQQBZEWi1MWRAKLEYoEFICFGtCgq5oJFRKLhDCrB05+kB6N/GHNEXEeZsqosiyCYp4QgmmriGCKCZ7BU0TQikRr0KlXPZSMixFN8ZYJFQZVQHRBYiyrESkgM3yoBF6fJXT3+QVHoc3Mipa81dFE01RdSxbBQPOham8BTQkAJTSRILIgGis1rvv6UKLKEAQqwQIiwazgIqQi4hE1USqFnkGtTohX38KqPRjm5UXBws4dIkIEqTPYsRTWqiQsVKlnChRUkEKKCQUPQiwqQFSrIi0UCASkDV0EimKhQRiqqxIVrpSuoTfaHpYcwpjzNoYtSrgFpBKonJZDkeggiypERZAFEsUPQikQwXCAAFXSCEWxJVqBFQCmLQEUTSDqEHZlzRUo4NhgurESixNW8kRamlZ9KEMGRbQMXAsDCxRKSmrU8hUWEKEKsS1UA1TFIkIKhCmpWVWVag10JXWA7ubk0IPP+uoAoCIoulNKgFLSVmKLqasq6hhSJVvgAoyLElIhRVRbANRRYCUlNXjBYJSM34CxEJ5K7BjR6XPHPpBMed0WUEWC4QKaBUtOSXwEKip6UVCJBotZLGtQ3vvv5VZWIqxNCl5RaJQ8DVTUVfIYSiQ4FSwKlIC6lqwdQYOzLm1IQcWjT00VVVlplKLqWkpT0LC1mNIIqaQ0XRA0VAsANVIUUSETRaQRYGqi6ACRBSVBqFdujA9Dnjki0o8246Cz00IotSmmAJyWpUAwi1IqRUnff7FEAIQEqlBWVxONWwUqRWeQ1LVTFGqlhIKBQqBDUiyL0+SuvxCZ7I9Dm556HfrSfGDz10P8AzX4fvBYJx8vfqSd/SC1F5M37QM+1Xzk9D9/3AQZvofO+9qAlGjmC9IwvL7X3ABx+0z8QFG+PmUAY/wBP7nH0wA6e/Us/Fggefv1qAJx9Pv1rfjUa6fKV1APSw//Z" alt="yellow" width="42" height="42"/></div>`)
+	for(let i = 0; i < 42; i++){
+		const $square = $(`<div data-num-square="${i}" ><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcGBgoHBwgRBgYJDQoHBwYIBw8IDggWFREXIiARHx8YHCggGBoxGx8TITEhJSkrLi4uIx8zODMsNygtLisBCgoKDg0NDw0NFSsZFRkrKysrLSsrLSsrKy0rLTcrKysrKystKysrKysrKysrKysrKysrLSsrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAAAAQIEBwP/xAA2EAEBAQABAgIFBg8BAAAAAAAAARECUvASQjJRYrHSIYKRocLRIjNBYXFygZKToqPB4eLxA//EABoBAQEBAQEBAQAAAAAAAAAAAAABAgMEBwX/xAAfEQEBAQABBQEBAQAAAAAAAAAAAREhAhIxQVFhcSL/2gAMAwEAAhEDEQA/APQZz59XvLy59QPm+/r9vIs5cur+dPFz6vei6d1MW3l1X60t59X9RKSHdTF8XPn5i8ufVSJid1Mi+Ln1e9fFz6qzF+k7r9MhOXLqpvLqv1oq91MXeXWeLmmmJ3X6ZDx8zxc+r3oSrOqmN3lz6kvLn1CHd+mL4+fUfh96kKmmL4ufVTxcutIsJaZF8XLqqTlz6kVruv04Ly5k58+oTE7uoyLvP8/8Q3n10sXF6bfqXHTvtUPDw74jv/r6xw5KWg8tdADFCi8UpSJPYCGIqmkF9IkLBSAVcATShE1QkXEqUBYJJ7E/UBVggpraBSKmiVGkJujqDB6GHHVzv/KpK87ZISigSoqIEKFN4DFSKqlQkPOmgqpa1EExbUYVUVIdURcABBplqjRiKsEwhYMXgAFg6dF+d7h6WHIRajzNroQNEi1YU/ozKWqlRSFAFAX+oU0NKCQVIphDSLcqADKmKlLGoi6JhjUqFgtSMVQ0VZCukT5e/wDiu+ObliVqpHCugJVsAKRQTEWCZ9E1U1WgJQQBZEWi1MWRAKLEYoEFICFGtCgq5oJFRKLhDCrB05+kB6N/GHNEXEeZsqosiyCYp4QgmmriGCKCZ7BU0TQikRr0KlXPZSMixFN8ZYJFQZVQHRBYiyrESkgM3yoBF6fJXT3+QVHoc3Mipa81dFE01RdSxbBQPOham8BTQkAJTSRILIgGis1rvv6UKLKEAQqwQIiwazgIqQi4hE1USqFnkGtTohX38KqPRjm5UXBws4dIkIEqTPYsRTWqiQsVKlnChRUkEKKCQUPQiwqQFSrIi0UCASkDV0EimKhQRiqqxIVrpSuoTfaHpYcwpjzNoYtSrgFpBKonJZDkeggiypERZAFEsUPQikQwXCAAFXSCEWxJVqBFQCmLQEUTSDqEHZlzRUo4NhgurESixNW8kRamlZ9KEMGRbQMXAsDCxRKSmrU8hUWEKEKsS1UA1TFIkIKhCmpWVWVag10JXWA7ubk0IPP+uoAoCIoulNKgFLSVmKLqasq6hhSJVvgAoyLElIhRVRbANRRYCUlNXjBYJSM34CxEJ5K7BjR6XPHPpBMed0WUEWC4QKaBUtOSXwEKip6UVCJBotZLGtQ3vvv5VZWIqxNCl5RaJQ8DVTUVfIYSiQ4FSwKlIC6lqwdQYOzLm1IQcWjT00VVVlplKLqWkpT0LC1mNIIqaQ0XRA0VAsANVIUUSETRaQRYGqi6ACRBSVBqFdujA9Dnjki0o8246Cz00IotSmmAJyWpUAwi1IqRUnff7FEAIQEqlBWVxONWwUqRWeQ1LVTFGqlhIKBQqBDUiyL0+SuvxCZ7I9Dm556HfrSfGDz10P8AzX4fvBYJx8vfqSd/SC1F5M37QM+1Xzk9D9/3AQZvofO+9qAlGjmC9IwvL7X3ABx+0z8QFG+PmUAY/wBP7nH0wA6e/Us/Fggefv1qAJx9Pv1rfjUa6fKV1APSw//Z" alt="yellow" width="42" height="42"/></div>`)
 	     // create one class for mother ducks and the other for little ducks
 	      if(i % 6 === 0) {
 					$square.addClass('mother-duck')
 					$square.attr('id',"my-field"+i)
-	/*assign mother duck image to class mother duck
-	const imgMotherDuck = $(`<div id = "little-duck">
-	<img src="https://previews.123rf.com/images/ynmcreations/ynmcreations1205/ynmcreations120500009/13510077-little-duck.jpg" alt="Little_Duck" width="42" height="42"/>
-	</div>`)
-	$imgMotherDuck.addClass('imgMotherDuck')
-	$('.mother-duck').append($imgMotherDuck)
-	*/
-					      } else {
+
+				} else {
 			 		$square.addClass('little-duck')
-		//const $square = $('<div>');
-		//$square.addClass('square');
-// gave each square an id of my-field+ number!
-		$square.attr('id', "my-field"+i)
+					$square.attr('id', "my-field"+i)
+				}
+					$square.addClass('square');
+					$myField.append($square);
 	}
-		$square.addClass('square');
-		$myField.append($square);
-	}
-	//$('#square').on('click', (event) => {
-		//console.log('Plays verse 1 of the song')// to make sure that my event listener is working
 }
 myField()
 
-//const playMusic = () => {
-
-//}// Function to play music; also corrections to HTML file for each
-
+// making songs play
 let isMusicPlaying = false
 
 function playAudio(duckAudio) {
@@ -106,18 +55,9 @@ duckAudio.play();
 function pauseAudio(duckAudio) {
 duckAudio.pause();
 }
-
-//document.get ElementById('#1').src="images/13510077-little-duck.jpg"
-//$('#1').css('background-image','url(https://previews.123rf.com/images/ynmcreations/ynmcreations1205/ynmcreations120500009/13510077-little-duck.jpg')
-//$('#my-field1').css('background-color', 'yellow')
-//const $square = $(`<div data-num-square='#1'><img src="images/1351007-little-duck.jpg" width="42" height="42"/></div>`)
-//$('#1'){background-image: src="images/13510077-little-duck.jpg"}
-
-// each square has its unique id - like #0
+// make the START button play instrumental:
 $('#generate').on('click', () => {
 	let md_start = document.getElementById("duckAudio7");
-	//if isMusicPlaying --  make boolean and write if statement
-		// turnes #my-field7 red but only when you click on it
 	playAudio(md_start)
 })
 
@@ -142,14 +82,14 @@ $('#11').children("img:first").remove()
 $('#my-field7').prepend('<img src="https://previews.123rf.com/images/ynmcreations/ynmcreations1205/ynmcreations120500009/13510077-little-duck.jpg" alt="Little_Duck" width="42" height="42"/>')
 $('#my-field7').children("img:first").hide()
 	playAudio(md6)
-})
+})// next 3 lines of code were left outside the on click function intentionally
+// otherwise, it changes the yellow squares to images in a strange way.
 // make little ducks appear in squares
 $('#my-field7').on('click', (event) => {
 $('#my-field7').children("img:first").remove()
 $('#my-field7').prepend('<img src="https://previews.123rf.com/images/ynmcreations/ynmcreations1205/ynmcreations120500009/13510077-little-duck.jpg" alt="Little_Duck" width="42" height="42"/>')
+
 })
-
-
 //****************Mother Duck #12*********************
 $('#12').on('click', (event) => {
  	console.log(event.currentTarget)//console.log('Verse_3.m4a'')
@@ -311,8 +251,6 @@ $('#36').on('click', (event) => {
 	playAudio(md36)
 })
 //************************
-
-
 
 //$(() => {
 	//const $btn = $('#btn')
